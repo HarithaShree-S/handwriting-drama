@@ -14,7 +14,7 @@ def generate_dramatic_report(metrics):
 
     # --- 1. PEN AGGRESSION DIALOGUES (Pressure / Ink Density) ---
     if pen > 70:
-        pen_dialogue = "🔥 'Mone Dinesha!' — You press the pen so hard the notebook needs medical insurance."
+        pen_dialogue = "🔥 'Po Mone Dinesha!' — You press the pen so hard the notebook needs medical insurance."
     elif pen > 40:
         pen_dialogue = "😌 'Ellam Ok Aanu!' — Moderate pen pressure. Emotionally balanced ink flow."
     else:
