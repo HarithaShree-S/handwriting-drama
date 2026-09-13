@@ -1,16 +1,30 @@
-import random
+"""
+Handwriting Forensics Lab - Scoring and Malayalam Dialogue Engine
+Translates OpenCV metrics into hilarious Malayalam movie dialogues and dramatic lab conclusions.
+"""
 
-def generate_dramatic_report(metrics):
+import random
+from typing import Dict, Any
+
+
+def generate_dramatic_report(metrics: Dict[str, int]) -> Dict[str, Any]:
     """
     Translates raw OpenCV metrics into hilarious Malayalam movie dialogues and dramatic lab conclusions.
-    """
-    pen = metrics['pen_aggression']
-    ego = metrics['letter_ego']
-    space = metrics['personal_space']
-    chaos = metrics['chaos_level']
     
+    Expected keys in metrics:
+      - pen_aggression: int
+      - letter_ego: int
+      - personal_space: int
+      - chaos_level: int
+    """
+    pen = metrics.get("pen_aggression", 50)
+    ego = metrics.get("letter_ego", 50)
+    space = metrics.get("personal_space", 50)
+    chaos = metrics.get("chaos_level", 50)
+
     # Calculate Main Character Energy (weighted combination)
     main_character_energy = int((ego * 0.4) + (pen * 0.3) + (chaos * 0.3))
+    main_character_energy = max(1, min(99, main_character_energy))
 
     # --- 1. PEN AGGRESSION DIALOGUES (Pressure / Ink Density) ---
     if pen > 70:
@@ -47,8 +61,11 @@ def generate_dramatic_report(metrics):
         "🚨 LAB DIAGNOSIS: 'Ente Dashanane...!' Your pen strokes carry 100% comedy movie villain energy.",
         "🧪 FORENSIC VERDICT: 'Savari Giri Giri!' Extremely dramatic handwriting detected.",
         "⚠️ WARNING: 'Pavanayi Shavamayi!' Step away from the pen before you tear another notebook page.",
-        "🎭 CERTIFICATE OF DRAMA: 'Njan Oru Paavam Human Being!' Your handwriting screams chaos."
+        "🎭 CERTIFICATE OF DRAMA: 'Njan Oru Paavam Human Being!' Your handwriting screams chaos.",
     ]
+
+    # Check whether the sample qualifies for dramatic vs comedy sound effects
+    is_high_drama = (main_character_energy >= 65 or pen > 70 or chaos > 60)
 
     return {
         "main_character_energy": main_character_energy,
@@ -56,5 +73,6 @@ def generate_dramatic_report(metrics):
         "ego_verdict": ego_verdict,
         "space_verdict": space_verdict,
         "chaos_verdict": chaos_verdict,
-        "final_conclusion": random.choice(conclusions)
+        "final_conclusion": random.choice(conclusions),
+        "is_high_drama": is_high_drama,
     }
