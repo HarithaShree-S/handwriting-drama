@@ -285,6 +285,7 @@ st.markdown(
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
         border-radius: 12px;
         padding: 18px;
+        margin-bottom: 16px;
         transition: all 0.25s ease;
         position: relative;
     }
@@ -560,129 +561,133 @@ if uploaded_file is not None:
                     energy_tag = "STEALTH OPERATIVE // BACKGROUND EXTRA"
 
                 st.markdown(
-                    f"""
-                <div class="hero-metric-card">
-                    <div class="hero-header">
-                        <span class="hero-title">🎭 MAIN CHARACTER ENERGY</span>
-                        <span class="hero-tag">STATUS: VERIFIED</span>
-                    </div>
-                    <div class="hero-body">
-                        <div class="hero-score">{main_energy}<span class="hero-percent">%</span></div>
-                        <div class="hero-verdict-pill">
-                            <strong>CLASSIFICATION:</strong> {energy_tag}
-                        </div>
-                    </div>
-                    <div class="hero-progress-bg">
-                        <div class="hero-progress-bar" style="width: {main_energy}%;"></div>
-                    </div>
-                </div>
-                """,
+                    f"""<div class="hero-metric-card">
+<div class="hero-header">
+<span class="hero-title">🎭 MAIN CHARACTER ENERGY</span>
+<span class="hero-tag">STATUS: VERIFIED</span>
+</div>
+<div class="hero-body">
+<div class="hero-score">{main_energy}<span class="hero-percent">%</span></div>
+<div class="hero-verdict-pill">
+<strong>CLASSIFICATION:</strong> {energy_tag}
+</div>
+</div>
+<div class="hero-progress-bg">
+<div class="hero-progress-bar" style="width: {main_energy}%;"></div>
+</div>
+</div>""",
                     unsafe_allow_html=True,
                 )
 
                 # -----------------------------------------------------------------
-                # Highlight Cards 2-5: Raw Laboratory Metrics (2x2 Grid)
+                # Highlight Cards 2-5: Raw Laboratory Metrics (Separate Columns)
                 # -----------------------------------------------------------------
                 st.markdown(
-                    """
-                <div class="section-header">
-                    <span>📊</span>
-                    <span>RAW LABORATORY METRICS</span>
-                </div>
-                """,
+                    """<div class="section-header">
+<span>📊</span>
+<span>RAW LABORATORY METRICS</span>
+</div>""",
                     unsafe_allow_html=True,
                 )
 
-                st.markdown(
-                    f"""
-                <div class="metric-grid">
-                    <!-- Metric Card: Pen Aggression -->
-                    <div class="metric-card">
-                        <div class="metric-card-header">
-                            <span class="metric-card-name">Pen Aggression</span>
-                            <span class="metric-card-icon">💢</span>
-                        </div>
-                        <div class="metric-card-value">{metrics['pen_aggression']}%</div>
-                        <div class="metric-mini-bar-bg">
-                            <div class="metric-mini-bar-fill" style="width: {metrics['pen_aggression']}%;"></div>
-                        </div>
-                    </div>
+                col1, col2 = st.columns(2)
 
-                    <!-- Metric Card: Letter Ego -->
-                    <div class="metric-card">
-                        <div class="metric-card-header">
-                            <span class="metric-card-name">Letter Ego</span>
-                            <span class="metric-card-icon">📏</span>
-                        </div>
-                        <div class="metric-card-value">{metrics['letter_ego']}%</div>
-                        <div class="metric-mini-bar-bg">
-                            <div class="metric-mini-bar-fill" style="width: {metrics['letter_ego']}%;"></div>
-                        </div>
-                    </div>
+                with col1:
+                    st.markdown(
+                        f"""<div class="metric-card">
+<div class="metric-card-header">
+<span class="metric-card-name">Pen Aggression</span>
+<span class="metric-card-icon">💢</span>
+</div>
+<div class="metric-card-value">{metrics['pen_aggression']}%</div>
+<div class="metric-mini-bar-bg">
+<div class="metric-mini-bar-fill" style="width: {metrics['pen_aggression']}%;"></div>
+</div>
+</div>""",
+                        unsafe_allow_html=True,
+                    )
+                    st.markdown(
+                        f"""<div class="metric-card">
+<div class="metric-card-header">
+<span class="metric-card-name">Word Personal Space</span>
+<span class="metric-card-icon">🫂</span>
+</div>
+<div class="metric-card-value">{metrics['personal_space']}%</div>
+<div class="metric-mini-bar-bg">
+<div class="metric-mini-bar-fill" style="width: {metrics['personal_space']}%;"></div>
+</div>
+</div>""",
+                        unsafe_allow_html=True,
+                    )
 
-                    <!-- Metric Card: Word Personal Space -->
-                    <div class="metric-card">
-                        <div class="metric-card-header">
-                            <span class="metric-card-name">Word Personal Space</span>
-                            <span class="metric-card-icon">🫂</span>
-                        </div>
-                        <div class="metric-card-value">{metrics['personal_space']}%</div>
-                        <div class="metric-mini-bar-bg">
-                            <div class="metric-mini-bar-fill" style="width: {metrics['personal_space']}%;"></div>
-                        </div>
-                    </div>
-
-                    <!-- Metric Card: Chaos Level -->
-                    <div class="metric-card">
-                        <div class="metric-card-header">
-                            <span class="metric-card-name">Chaos Level</span>
-                            <span class="metric-card-icon">🌪️</span>
-                        </div>
-                        <div class="metric-card-value">{metrics['chaos_level']}%</div>
-                        <div class="metric-mini-bar-bg">
-                            <div class="metric-mini-bar-fill" style="width: {metrics['chaos_level']}%;"></div>
-                        </div>
-                    </div>
-                </div>
-                """,
-                    unsafe_allow_html=True,
-                )
+                with col2:
+                    st.markdown(
+                        f"""<div class="metric-card">
+<div class="metric-card-header">
+<span class="metric-card-name">Letter Ego</span>
+<span class="metric-card-icon">📏</span>
+</div>
+<div class="metric-card-value">{metrics['letter_ego']}%</div>
+<div class="metric-mini-bar-bg">
+<div class="metric-mini-bar-fill" style="width: {metrics['letter_ego']}%;"></div>
+</div>
+</div>""",
+                        unsafe_allow_html=True,
+                    )
+                    st.markdown(
+                        f"""<div class="metric-card">
+<div class="metric-card-header">
+<span class="metric-card-name">Chaos Level</span>
+<span class="metric-card-icon">🌪️</span>
+</div>
+<div class="metric-card-value">{metrics['chaos_level']}%</div>
+<div class="metric-mini-bar-bg">
+<div class="metric-mini-bar-fill" style="width: {metrics['chaos_level']}%;"></div>
+</div>
+</div>""",
+                        unsafe_allow_html=True,
+                    )
 
                 # -----------------------------------------------------------------
                 # Malayalam Movie Drama Report
                 # -----------------------------------------------------------------
                 st.markdown(
-                    """
-                <div class="section-header">
-                    <span>🎬</span>
-                    <span>MALAYALAM MOVIE DRAMA REPORT</span>
-                </div>
-                """,
+                    """<div class="section-header">
+<span>🎬</span>
+<span>MALAYALAM MOVIE DRAMA REPORT</span>
+</div>""",
                     unsafe_allow_html=True,
                 )
 
                 st.markdown(
-                    f"""
-                <div class="dialogue-card pen">
-                    <div class="dialogue-title">✍️ Pen Pressure Analysis</div>
-                    <div class="dialogue-quote">{report['pen_dialogue']}</div>
-                </div>
+                    f"""<div class="dialogue-card pen">
+<div class="dialogue-title">✍️ Pen Pressure Analysis</div>
+<div class="dialogue-quote">{report['pen_dialogue']}</div>
+</div>""",
+                    unsafe_allow_html=True,
+                )
 
-                <div class="dialogue-card ego">
-                    <div class="dialogue-title">📏 Letter Ego Evaluation</div>
-                    <div class="dialogue-quote">{report['ego_verdict']}</div>
-                </div>
+                st.markdown(
+                    f"""<div class="dialogue-card ego">
+<div class="dialogue-title">📏 Letter Ego Evaluation</div>
+<div class="dialogue-quote">{report['ego_verdict']}</div>
+</div>""",
+                    unsafe_allow_html=True,
+                )
 
-                <div class="dialogue-card space">
-                    <div class="dialogue-title">🫂 Word Spacing Forensics</div>
-                    <div class="dialogue-quote">{report['space_verdict']}</div>
-                </div>
+                st.markdown(
+                    f"""<div class="dialogue-card space">
+<div class="dialogue-title">🫂 Word Spacing Forensics</div>
+<div class="dialogue-quote">{report['space_verdict']}</div>
+</div>""",
+                    unsafe_allow_html=True,
+                )
 
-                <div class="dialogue-card chaos">
-                    <div class="dialogue-title">🌪️ Chaos & Entropy Spectrum</div>
-                    <div class="dialogue-quote">{report['chaos_verdict']}</div>
-                </div>
-                """,
+                st.markdown(
+                    f"""<div class="dialogue-card chaos">
+<div class="dialogue-title">🌪️ Chaos & Entropy Spectrum</div>
+<div class="dialogue-quote">{report['chaos_verdict']}</div>
+</div>""",
                     unsafe_allow_html=True,
                 )
 
@@ -690,11 +695,9 @@ if uploaded_file is not None:
                 # Final Lab Verdict Box
                 # -----------------------------------------------------------------
                 st.markdown(
-                    f"""
-                <div class="final-verdict-box">
-                    <div class="verdict-header">📢 FINAL FORENSIC LAB VERDICT</div>
-                    <div class="verdict-content">{report['final_conclusion']}</div>
-                </div>
-                """,
+                    f"""<div class="final-verdict-box">
+<div class="verdict-header">📢 FINAL FORENSIC LAB VERDICT</div>
+<div class="verdict-content">{report['final_conclusion']}</div>
+</div>""",
                     unsafe_allow_html=True,
                 )
