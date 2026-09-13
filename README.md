@@ -7,8 +7,6 @@
 
 ### Team Members
 - Team Lead: Haritha Shree S - Saintgits College of Engineering Kottayam
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
 
 ### Project Description
 An unnecessarily dramatic "handwriting forensics lab" that extracts real computer vision metrics (pen pressure, line slant, word spacing) from handwritten images and outputs a completely ridiculous personality report with iconic Malayalam cinema dialogues and dynamic sound effects.
@@ -57,37 +55,90 @@ streamlit run app.py
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Forensic Laboratory interface showing the dark slate blue/neon cyber theme, live camera snap, and file upload tabs*
+![Build Process](assets/build.png)
+*Forensic Laboratory interface showing the dark slate blue/neon cyber theme, live camera snap, and file upload tabs*!
 
-![Screenshot2](Add screenshot 2 here with proper name)
+![Final Product Screenshot](assets/app_preview(1).png)(assets/app_preview(2))
 *Real-time OpenCV specimen analysis displaying Main Character Energy hero card and raw laboratory metrics*
 
-![Screenshot3](Add screenshot 3 here with proper name)
+![Result]
 *Malayalam Movie Drama Report card with iconic dialogues, forensic verdict stamp, and automatic audio stinger trigger*
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*End-to-end architecture pipeline: Image Input (Webcam/Upload) -> OpenCV Preprocessing (Otsu Thresholding & Contour Extraction) -> Graphology Metric Engine (Pen Aggression, Letter Ego, Spacing, Chaos) -> Malayalam Dialogue Mapper & Audio FX Dispatcher -> Streamlit Forensic UI*
+
+### End-to-End Architecture Pipeline
+
+```mermaid
+flowchart TD
+    %% Input Stage
+    A[📷 User Input: Live Webcam / File Upload] --> B[🖼️ Raw Image Data]
+
+    %% OpenCV Computer Vision Stage
+    subgraph Computer Vision Pipeline OpenCV
+        B --> C[⚪ Grayscale Conversion]
+        C --> D[🔲 Otsu Thresholding: Ink vs Paper]
+        D --> E[📦 Contour Extraction & Bounding Boxes]
+    end
+
+    %% Metric Calculation Engine
+    subgraph Metric Engine
+        E --> F1[💢 Pen Aggression: Ink Pixel Density]
+        E --> F2[📏 Letter Ego: Contour Height Ratio]
+        E --> F3[🫂 Word Personal Space: Horizontal Gap Math]
+        E --> F4[🌪️ Chaos Level: Height Standard Deviation]
+    end
+
+    %% Scoring & Interpretation Engine
+    subgraph Dialogue & Audio Dispatcher
+        F1 & F2 & F3 & F4 --> G[🎭 Main Character Energy Calculation]
+        G --> H[🎬 Malayalam Movie Dialogue Mapper]
+        H --> I[🔊 Audio FX Dispatcher]
+    end
+
+    %% Output Presentation
+    subgraph Presentation Layer
+        H & I --> J[🧪 Streamlit Forensic Laboratory UI]
+    end
 
 For Hardware:
 
 # Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
+Its a software project that does not need any hardware components.
 
 # Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
+Components: None
 
-![Build](Add photos of build process here)
-*Explain the build steps*
+# Build Photos & Development Process
 
-![Final](Add photo of final product here)
-*Explain the final build*
+# 🛠️ Step-by-Step Build Process
+
+1. **Environment & Dependency Setup:** 
+   Configured Python virtual environment (`venv`), installed core computer vision libraries (`opencv-python`, `numpy`), and set up `streamlit` for the frontend interface.
+   
+2. **Computer Vision Pipeline Development (`analyzer.py`):**
+   Implemented OpenCV image processing using Otsu's thresholding to isolate ink pixels from paper, alongside bounding box contour extraction to measure physical letter height and word gap distances.
+
+3. **Malayalam Meme & Dialogue Engine (`scoring.py`):**
+   Mapped raw pixel measurements to iconic Malayalam movie dialogues (*"Po Mone Dinesha!"*, *"Manavalan at your service!"*, *"Ormayundo Ee Mukham?"*) and calculated the final *Main Character Energy* score.
+
+4. **Interactive UI & Webcam Integration (`app.py`):**
+   Integrated Streamlit's live camera widget (`st.camera_input`) and file uploader, styled with dark-mode laboratory themes and sound effect triggers.
+
+*(Add your build photos below by dropping image files into your repo and linking them)*
+![Build Process](https://via.placeholder.com/800x400?text=Development+%26+Coding+Process)
+*Developing the computer vision contour extraction and Streamlit UI in VS Code & Antigravity IDE.*
+
+---
+
+## 🔬 Final Product
+
+### 🎭 Live Forensic Laboratory Interface
+
+The final build is a fully functional, interactive web application running locally via Streamlit. It allows users to snap a live photo of handwritten notes using their laptop webcam, processes the ink properties in real-time, plays funny sound effects, and displays a complete dramatic report.
+
+*(Add your final app screenshot below)*
+![Final Product Screenshot](https://via.placeholder.com/800x400?text=Final+Forensic+Lab+App+Interface)
+*The final app interface displaying raw OpenCV metrics, Main Character Energy, iconic Malayalam movie dialogues, and dramatic lab verdicts.*
 
 ### Project Demo
 # Video
@@ -99,7 +150,5 @@ For Hardware:
 
 ## Team Contributions
 - Haritha Shree S: Built the OpenCV computer vision analysis engine, designed the dark/neon Streamlit UI, integrated the Malayalam comedy dialogue scoring system, and implemented the audio effects system with local and royalty-free web fallbacks.
-- [Member 2]: [Specific contributions]
-- [Member 3]: [Specific contributions]
 
 ---

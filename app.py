@@ -455,49 +455,7 @@ st.markdown(
 )
 
 # -----------------------------------------------------------------------------
-# 3. Audio Resolver Helper
-# -----------------------------------------------------------------------------
-def get_audio_source(is_high_drama: bool):
-    """
-    Checks if an 'assets' folder exists in the project directory containing sound files (.mp3 or .wav).
-    If found, returns local file path or bytes.
-    If not found, falls back gracefully to playing lightweight royalty-free web audio URLs.
-    """
-    assets_dir = Path("assets")
-    target_type = "dramatic" if is_high_drama else "comedy"
-
-    # 1. Check local assets directory
-    if assets_dir.is_dir():
-        # Priority check: dramatic.wav / dramatic.mp3 or comedy.wav / comedy.mp3
-        for ext in [".wav", ".mp3", ".ogg"]:
-            candidate = assets_dir / f"{target_type}{ext}"
-            if candidate.exists() and candidate.is_file():
-                mime = "audio/wav" if ext == ".wav" else ("audio/mpeg" if ext == ".mp3" else "audio/ogg")
-                return str(candidate), mime, "local"
-
-        # Search for any audio file matching keyword
-        audio_files = [f for f in assets_dir.iterdir() if f.suffix.lower() in [".wav", ".mp3", ".ogg"]]
-        if audio_files:
-            for f in audio_files:
-                if target_type in f.stem.lower():
-                    mime = "audio/wav" if f.suffix == ".wav" else ("audio/mpeg" if f.suffix == ".mp3" else "audio/ogg")
-                    return str(f), mime, "local"
-            # Return first available file
-            first_f = audio_files[0]
-            mime = "audio/wav" if first_f.suffix == ".wav" else ("audio/mpeg" if first_f.suffix == ".mp3" else "audio/ogg")
-            return str(first_f), mime, "local"
-
-    # 2. Royalty-free reliable web audio fallback URLs
-    fallback_urls = {
-        "dramatic": "https://actions.google.com/sounds/v1/emergency/emergency_siren_short_burst.ogg",
-        "comedy": "https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg",
-    }
-    url = fallback_urls.get(target_type, fallback_urls["comedy"])
-    return url, "audio/ogg", "web_fallback"
-
-
-# -----------------------------------------------------------------------------
-# 4. Header Badge & Lab Title
+# 3. Header Badge & Lab Title
 # -----------------------------------------------------------------------------
 st.markdown(
     """
@@ -517,7 +475,7 @@ st.markdown(
 )
 
 # -----------------------------------------------------------------------------
-# 5. Input Tabs (Live Photo Camera vs Image File Upload)
+# 4. Input Tabs (Live Photo Camera vs Image File Upload)
 # -----------------------------------------------------------------------------
 tab1, tab2 = st.tabs(["📷 Take Live Photo", "📁 Upload Image File"])
 
@@ -538,7 +496,7 @@ with tab2:
         uploaded_file = file_photo
 
 # -----------------------------------------------------------------------------
-# 6. Sample Preview & Forensic Execution
+# 5. Sample Preview & Forensic Execution
 # -----------------------------------------------------------------------------
 if uploaded_file is not None:
     try:
@@ -563,30 +521,33 @@ if uploaded_file is not None:
                 main_energy = report["main_character_energy"]
                 is_high_drama = report.get("is_high_drama", False)
 
-                # 3. Sound Effects Integration
-                audio_src, audio_mime, audio_origin = get_audio_source(is_high_drama)
-                audio_label = "Dramatic Emergency Alert Stinger" if is_high_drama else "Slapstick Comedy Hit"
-
-                try:
-                    if audio_origin == "local" and os.path.exists(audio_src):
-                        with open(audio_src, "rb") as f:
-                            st.audio(f.read(), format=audio_mime, autoplay=True)
-                    else:
-                        st.audio(audio_src, format=audio_mime, autoplay=True)
-                except Exception:
-                    # Silent graceful fallback to ensure app never crashes
-                    pass
-
-                # Sound status indicator
-                st.markdown(
-                    f"""
-                <div class="audio-alert-badge">
-                    <span>🔊</span>
-                    <span><strong>FORENSIC AUDIO FX:</strong> Playing {audio_label} ({'Local Asset' if audio_origin == 'local' else 'Royalty-Free Fallback'})</span>
-                </div>
-                """,
-                    unsafe_allow_html=True,
-                )
+                # -----------------------------------------------------------------
+                # 3. GIF Meme Stinger (Loaded from local assets folder)
+                # -----------------------------------------------------------------
+                if is_high_drama:
+                    # High drama / chaos GIF (prioritizes local assets/drama.gif)
+                    drama_gif = (
+                        "assets/drama.gif"
+                        if os.path.exists("assets/drama.gif")
+                        else "https://media.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif"
+                    )
+                    st.image(
+                        drama_gif,
+                        caption="🚨 DRAMA OVERLOAD DETECTED!",
+                        use_container_width=True,
+                    )
+                else:
+                    # Funny Malayalam / Comedy vibe GIF (prioritizes local assets/comedy.gif)
+                    comedy_gif = (
+                        "assets/comedy.gif"
+                        if os.path.exists("assets/comedy.gif")
+                        else "https://media.giphy.com/media/l1J3pT777D3xwNW80/giphy.gif"
+                    )
+                    st.image(
+                        comedy_gif,
+                        caption="🎭 ABSURD COMEDY VIBES DETECTED!",
+                        use_container_width=True,
+                    )
 
                 # -----------------------------------------------------------------
                 # Highlight Card 1: Main Character Energy (Hero Card)
