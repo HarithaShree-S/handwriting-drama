@@ -9,20 +9,20 @@
 - Team Lead: Haritha Shree S - Saintgits College of Engineering Kottayam
 
 ### Project Description
-An unnecessarily dramatic "handwriting forensics lab" that extracts real computer vision metrics (pen pressure, line slant, word spacing) from handwritten images and outputs a completely ridiculous personality report with iconic Malayalam cinema dialogues and dynamic sound effects.
+An unnecessarily dramatic "handwriting forensics lab" that extracts real computer vision metrics (pen pressure, line slant, word spacing) from handwritten images and outputs a completely ridiculous personality report with iconic Malayalam cinema dialogues and dynamic GIF meme reactions.
 
 ### The Problem (that doesn't exist)
 People write notes every day without knowing how much emotional aggression, main character energy, or boundary-issues their pen strokes carry.
 
 ### The Solution (that nobody asked for)
-A high-energy dark/neon web laboratory using OpenCV to mathematically analyze handwriting pixels (ink density, contour geometry, and spacing entropy) and deliver unhinged, highly specific psychological verdicts scored with iconic Malayalam comedy movie dialogues and dramatic sound effects.
+A high-energy dark/neon web laboratory using OpenCV to mathematically analyze handwriting pixels (ink density, contour geometry, and spacing entropy) and deliver unhinged, highly specific psychological verdicts scored with iconic Malayalam comedy movie dialogues and dramatic GIF meme reactions.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
 - Languages: Python 3
 - Frameworks: Streamlit
-- Libraries: OpenCV (cv2), NumPy, Pillow (PIL), Standard Library (wave, struct, math, os, glob)
+- Libraries: OpenCV (cv2), NumPy, Pillow (PIL), Standard Library (os, glob, math)
 - Tools: VS Code, Git, GitHub
 
 For Hardware:
@@ -56,12 +56,12 @@ For Software:
 
 # Screenshots (Add at least 3)
 ![Build Process](assets/build.png)
-*Forensic Laboratory interface showing the dark slate blue/neon cyber theme, live camera snap, and file upload tabs*!
+*Forensic Laboratory interface showing the dark slate blue/neon cyber theme, live camera snap, and file upload tabs*
 
-![Final Product Screenshot](assets/app_preview(1).png)(assets/app_preview(2))
+![Final Product Screenshot 1](assets/app_preview(1).png)
 *Real-time OpenCV specimen analysis displaying Main Character Energy hero card and raw laboratory metrics*
 
-![Result]
+![Final Product Screenshot 2](assets/app_preview(2).png )
 *Malayalam Movie Drama Report card with iconic dialogues, forensic verdict stamp, and automatic audio stinger trigger*
 
 # Diagrams
@@ -142,13 +142,14 @@ The final build is a fully functional, interactive web application running local
 
 ### Project Demo
 # Video
-[Add your demo video link here]
+[assets/demo.mp4]
 *Demonstration of image capture, OpenCV pixel analysis, real-time metric rendering, Malayalam dialogue generation, and audio sound effects playback*
 
 # Additional Demos
-[Add any extra demo materials/links]
+[https://drive.google.com/file/d/18hL1pP7P3LrgDF636Ch-0xgK2vj1h12D/view?usp=drive_link]
 
 ## Team Contributions
 - Haritha Shree S: Built the OpenCV computer vision analysis engine, designed the dark/neon Streamlit UI, integrated the Malayalam comedy dialogue scoring system, and implemented the audio effects system with local and royalty-free web fallbacks.
+ the OpenCV computer vision analysis engine, designed the dark/neon Streamlit UI, integrated the Malayalam comedy dialogue scoring system, and integrated local and fallback GIF meme reaction system.
 
 ---

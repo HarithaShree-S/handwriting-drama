@@ -4,8 +4,6 @@ High-energy, dark-neon forensic laboratory for graphology drama analysis.
 """
 
 import os
-import glob
-from pathlib import Path
 from PIL import Image
 import streamlit as st
 
@@ -423,19 +421,12 @@ st.markdown(
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     }
 
-    /* Audio Stinger Notification Badge */
-    .audio-alert-badge {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background: rgba(0, 240, 255, 0.12);
-        border: 1px solid rgba(0, 240, 255, 0.35);
-        border-radius: 8px;
-        padding: 10px 16px;
-        margin: 18px 0;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.82rem;
-        color: #00f0ff;
+    /* GIF Meme Container Styling */
+    .stImage > img {
+        border-radius: 12px !important;
+        border: 1px solid rgba(0, 240, 255, 0.3) !important;
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.25) !important;
+        margin: 12px 0 20px 0 !important;
     }
 
     /* Style file uploader and camera containers */

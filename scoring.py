@@ -64,7 +64,7 @@ def generate_dramatic_report(metrics: Dict[str, int]) -> Dict[str, Any]:
         "🎭 CERTIFICATE OF DRAMA: 'Njan Oru Paavam Human Being!' Your handwriting screams chaos.",
     ]
 
-    # Check whether the sample qualifies for dramatic vs comedy sound effects
+    # Check whether the sample qualifies for dramatic vs comedy reaction GIFs
     is_high_drama = (main_character_energy >= 65 or pen > 70 or chaos > 60)
 
     return {
