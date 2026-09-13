@@ -99,6 +99,9 @@ flowchart TD
     subgraph Presentation Layer
         H & I --> J[🧪 Streamlit Forensic Laboratory UI]
     end
+```
+
+*End-to-end architecture pipeline: Image Input (Webcam/Upload) -> OpenCV Preprocessing -> Graphology Metric Engine -> Dialogue Mapper -> Streamlit Forensic UI*
 
 For Hardware:
 
@@ -149,7 +152,7 @@ The final build is a fully functional, interactive web application running local
 [https://drive.google.com/file/d/18hL1pP7P3LrgDF636Ch-0xgK2vj1h12D/view?usp=drive_link]
 
 ## Team Contributions
-- Haritha Shree S: Built the OpenCV computer vision analysis engine, designed the dark/neon Streamlit UI, integrated the Malayalam comedy dialogue scoring system, and implemented the audio effects system with local and royalty-free web fallbacks.
- the OpenCV computer vision analysis engine, designed the dark/neon Streamlit UI, integrated the Malayalam comedy dialogue scoring system, and integrated local and fallback GIF meme reaction system.
+- Haritha Shree S: Built the OpenCV computer vision analysis engine, designed the dark/neon Streamlit UI, integrated the Malayalam comedy dialogue scoring system, and implemented the audio effects and GIF meme reaction system.
 
 ---
+Made with ❤️ at TinkerHub Useless Projects
